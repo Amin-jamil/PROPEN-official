@@ -12,6 +12,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
 
   <style>
+    .menu-dot {
+      font-size: 24px;
+      cursor: pointer;
+      user-select: none;
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #f5f9f7;
@@ -50,13 +56,67 @@
       color: #555;
       font-size: 14px;
     }
+    .menu-container {
+      position: relative;
+      display: inline-block;
+    }
+    .menu-dot {
+      font-size: 24px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: white;
+      min-width: 150px;
+      box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+      border-radius: 5px;
+      overflow: hidden;
+      z-index: 1000;
+    }
+
+     .dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: white;
+      min-width: 150px;
+      box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+      border-radius: 5px;
+      overflow: hidden;
+      z-index: 1000;
+    }
+
+     .dropdown a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: black;
+    }
+    .dropdown a:hover {
+      background-color: #f0f0f0;
+    }
+
   </style>
 </head>
 <body>
 
-  <header>
+  <header style="position: relative; color:#2e7d32; padding: 10px 0;">
+  <div class="menu-container" style="position:absolute; top:10px; right:10px;">
+     <div class="menu-dot" onclick="toggleMenu()">&#8942;</div>
+     <div class="dropdown" id="menuDropdown">
+       <a href="objective.html">Objective</a>
+       <a href="concept model.html">Concept Model</a>
+     </div>
+  </div>
+
+
+  <div style="text-align:center;">  
     <h1>PROPEN</h1>
     <p><em>The Official PROPEN Website – Bringing the Best Phones</em></p>
+  </div>
   </header>
 
   <nav class="text-center mb-4">
@@ -75,12 +135,25 @@
   <footer>
     <p>&copy; 2025 PROPEN. All rights reserved.</p>
     <p>&copy; This website will be update one by one until 1/12/2025.</p>
+    <p>&copy; version 1.1.2 (updated)</p>
   </footer>
 
   <!-- Bootstrap JS (optional) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menuDropdown");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+window.onclick = function(event) {
+      if (!event.target.matches('.menu-dot')) {
+        document.getElementById("menuDropdown").style.display = "none";
+      }
+    }
+  </script>
 </body>
 </html>
+
 
 
 
